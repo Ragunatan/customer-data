@@ -13,22 +13,27 @@
     </header>
 
     <section class="container">
-      <form id="my-form">
+      <form id="my-form" onsubmit="storedata(event)">
         <h1>Add User</h1>
         <div class="msg"></div>
         <div>
           <label for="name">Name:</label>
-          <input type="text" id="name">
+          <input type="text" id="name" required>
         </div>
         <div>
           <label for="email">Email:</label>
-          <input type="text" id="email">
+          <input type="email" id="email" required>
         </div>
+        <div>
+            <label for="phone">Phone:</label>
+            <input type="number" id="phone" required>
+          </div>
         <input class="btn" type="submit" value="Submit">
       </form>
 
       <ul id="users"></ul>
 
+    
       <!-- <ul class="items">
         <li class="item">Item 1</li>
         <li class="item">Item 2</li>
@@ -37,6 +42,17 @@
     </section>
     
 
-    <script src="main.js"></script>
+    <script>
+        function storedata(e){
+            event.preventDefault();
+            const name = event.target.name.value;
+            const email = event.target.email.value;
+            const phone = event.target.phone.value;
+            localStorage.setItem('name' , name)
+            localStorage.setItem('email' , email)
+            localStorage.setItem('phone' , phone)
+
+        }
+    </script>
   </body>
 </html>
