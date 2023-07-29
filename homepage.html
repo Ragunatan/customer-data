@@ -22,11 +22,11 @@
         </div>
         <div>
           <label for="email">Email:</label>
-          <input type="email" id="email" required>
+          <input type="text" id="email" required>
         </div>
         <div>
             <label for="phone">Phone:</label>
-            <input type="number" id="phone" required>
+            <input type="text" id="phone" required>
           </div>
         <input class="btn" type="submit" value="Submit">
       </form>
@@ -48,11 +48,19 @@
             const name = event.target.name.value;
             const email = event.target.email.value;
             const phone = event.target.phone.value;
-            localStorage.setItem('name' , name)
-            localStorage.setItem('email' , email)
-            localStorage.setItem('phone' , phone)
-
-        }
+            
+            class Data{
+              constructor(name,email,phone){
+                this.name = name;
+                this.email = email;
+                this.phone = phone
+              }
+            }
+            var user1 = new Data(name,email,phone)
+            var str_user1 = JSON.stringify(user1)
+            localStorage.setItem('user1',str_user1)
+            console.log(user1)
+          }
     </script>
   </body>
 </html>
