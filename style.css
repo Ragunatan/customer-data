@@ -41,7 +41,9 @@
     display: block;
   }
   
-  #my-form input[type='text'] {
+  #my-form input[type='text'],
+  #my-form input[type='email'],
+  #my-form input[type='number'] {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
@@ -75,3 +77,4 @@
     padding: 5px;
     margin: 5px;
   }
+  
