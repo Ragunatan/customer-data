@@ -31,7 +31,7 @@
         <input class="btn" type="submit" value="Submit">
       </form>
 
-      <ul id="users"></ul>
+      <!-- <ul id="users"></ul> -->
 
     
       <!-- <ul class="items">
@@ -40,27 +40,7 @@
         <li class="item">Item 3</li>
       </ul> -->
     </section>
-    
-
-    <script>
-        function storedata(e){
-            event.preventDefault();
-            const name = event.target.name.value;
-            const email = event.target.email.value;
-            const phone = event.target.phone.value;
-            
-            class Data{
-              constructor(name,email,phone){
-                this.name = name;
-                this.email = email;
-                this.phone = phone
-              }
-            }
-            var user1 = new Data(name,email,phone)
-            var str_user1 = JSON.stringify(user1)
-            localStorage.setItem('user1',str_user1)
-            console.log(user1)
-          }
-    </script>
+      
+  <script src="back.js"></script>
   </body>
 </html>
