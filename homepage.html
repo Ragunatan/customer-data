@@ -31,7 +31,7 @@
         <input class="btn" type="submit" value="Submit">
       </form>
 
-      <!-- <ul id="users"></ul> -->
+      <ul id="users"></ul>
 
     
       <!-- <ul class="items">
@@ -41,6 +41,25 @@
       </ul> -->
     </section>
       
-  <script src="back.js"></script>
+  <script src="back.js">   
+  function storedata(event){
+    event.preventDefault();
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const phone = event.target.phone.value;
+    
+    
+      const obj ={ name,email,phone }
+    var str_user1 = JSON.stringify(obj)
+    localStorage.setItem(obj.email,str_user1)
+    displaydata(obj)
+}
+
+function displaydata(obj) {
+  var max = document.getElementById('users');
+  max.innerHTML = max.innerHTML + `<li>${obj.name} - ${obj.email} - ${obj.phone}</li>`;
+}
+</script>
+  
   </body>
 </html>
