@@ -42,6 +42,7 @@
     </section>
       
   <script>   
+
   function storedata(event){
     event.preventDefault();
     const name = event.target.name.value;
@@ -60,18 +61,36 @@ function displaydata(obj) {
       var listItem = document.createElement('li')
       listItem.textContent =obj.name + ' - ' + obj.email + ' - ' + obj.phone; 
       parentelement.appendChild(listItem)
-    //create new button element
+    //create new delete button;
       var deletebutton = document.createElement('input');
       deletebutton.type = 'button';
       deletebutton.id = 'del';
       deletebutton.value = 'Delete';
 
-      listItem.appendChild(deletebutton);
+      // Create new Edit button;
+      var Editbtn = document.createElement('input');
+      Editbtn.type='button';
+      Editbtn.id = 'edit';
+      Editbtn.value = 'Edit';
+
+     
       //function using onclick to delete data
       deletebutton.onclick = () =>{
         localStorage.removeItem(obj.email);
         parentelement.removeChild(listItem)
       }
+
+      Editbtn.onclick = () =>{
+  
+        localStorage.removeItem(obj.email);
+        parentelement.removeChild(listItem);
+
+        document.getElementById('name').value = obj.name;
+        document.getElementById('email').value = obj.email;
+        document.getElementById('phone').value = obj.phone;
+      }
+      listItem.appendChild(deletebutton);
+      listItem.appendChild(Editbtn)
 
 }
 </script>
